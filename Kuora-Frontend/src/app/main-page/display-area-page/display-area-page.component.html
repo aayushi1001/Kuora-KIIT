@@ -1,0 +1,63 @@
+<!-- 
+  @Author: Ayush Ranjan
+  @Date:   2022-04-18 16:10:08
+  @Last Modified by:   Ayush Ranjan
+  @Last Modified time: 2022-04-22 20:27:31
+-->
+<div class="dropdown filter float-end m-2">
+  <button
+    class="btn btn-primary dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton1"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Filter
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" (click)="onfilter('all')">All</a></li>
+    <li>
+      <a class="dropdown-item" (click)="onfilter('verified')">Verified Only</a>
+    </li>
+    <li>
+      <a class="dropdown-item" (click)="onfilter('unverified')"
+        >UnVerified Only</a
+      >
+    </li>
+  </ul>
+</div>
+<div class="container post-question">
+  <div class="row">
+    <div class="col-md-5">
+      <img
+        class="background-img"
+        src="../../../assets/girl.jpg"
+        alt="girl.jpg"
+      />
+    </div>
+    <div class="col-md-7">
+      <p class="font-weight-light question">
+        HAVING LOTS OF QUESTIONS IN MIND?
+      </p>
+      <p class="sub-ques">
+        JUST ASK ANYTHING
+        <a
+          class="btn btn-primary float-center mt-2 create-btn"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          >Ask a Question</a
+        >
+      </p>
+
+      <app-post-question></app-post-question>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <!--  <ul>-->
+  <!--    <li *ngFor="let val of post" >{{val.title}}</li>-->
+  <!--  </ul>-->
+  <app-post-card-page *ngFor="let val of post" [element]="val">
+  </app-post-card-page>
+</div>

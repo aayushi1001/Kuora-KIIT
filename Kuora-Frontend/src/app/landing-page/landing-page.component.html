@@ -1,0 +1,23 @@
+<div class="container-fluid mt-5 main">
+  <div class="row mx-2">
+    <div class="col-md-6">
+      <h1 class="mx-5">Kuora</h1>
+      <p>A SOLUTION FOR ALL YOUR QUESTIONS</p>
+      <img
+        class="main-page-logo"
+        src="https://media.istockphoto.com/vectors/student-education-concept-vector-flat-person-illustration-female-and-vector-id1224778014?k=20&m=1224778014&s=170667a&w=0&h=ju5P-_3tzHfUINb920nBU4PSTy_jxfg2ouVxNzd8xGo="
+        alt=""
+      />
+    </div>
+    <div class="col-md-6 mx-auto border p-5" *ngIf="!gotologin">
+      <app-registration-page
+        (isLogin)="toggleToLogin($event)"
+      ></app-registration-page>
+    </div>
+    <div class="col-md-6 mx-auto border p-5" *ngIf="gotologin">
+      <app-login-page
+        (isRegistration)="toggleToregistration($event)"
+      ></app-login-page>
+    </div>
+  </div>
+</div>

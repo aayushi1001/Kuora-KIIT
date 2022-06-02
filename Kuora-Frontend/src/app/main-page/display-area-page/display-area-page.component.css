@@ -1,0 +1,94 @@
+/**
+ * @Author: Ayush Ranjan
+ * @Date:   2022-04-18 16:10:08
+ * @Last Modified by:   Ayush Ranjan
+ * @Last Modified time: 2022-04-24 22:19:42
+ */
+.filter {
+  position: fixed;
+  top: 60px;
+  right: 5px;
+}
+.main-area {
+  position: absolute;
+  left: 7%;
+}
+.post-question {
+  background-color: white;
+  height: 35vh;
+  padding: 20px;
+  width: 100%;
+  border: 1px solid rgb(214, 212, 212);
+  box-shadow: 1px 1px 2px rgb(225, 223, 223);
+}
+.background-img {
+  height: 200px;
+  width: 200px;
+}
+.question {
+  font-size: 25px;
+  position: relative;
+  left: -8rem;
+  top: 4rem;
+}
+.sub-ques {
+  font-size: 37px;
+  position: relative;
+  top: 2.5rem;
+  left: -8rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.create-btn {
+  margin-left: 10px;
+  position: relative;
+  top: -5px;
+}
+@media screen and (max-width: 768px) {
+  .question {
+    font-size: 20px;
+    position: relative;
+    left: -1rem;
+    top: 4rem;
+  }
+  .sub-ques {
+    font-size: 26px;
+    position: relative;
+    top: 3rem;
+    left: -1.5rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+  .post-question {
+    background-color: white;
+    height: 25vh;
+    padding: 20px;
+    width: 70%;
+    border: 1px solid rgb(214, 212, 212);
+    box-shadow: 1px 1px 2px rgb(225, 223, 223);
+  }
+}
+@media screen and (max-width: 480px) {
+  .question {
+    top: 0;
+    font-size: 15px;
+    position: relative;
+    left: 0;
+  }
+  .background-img {
+    display: none;
+  }
+  .sub-ques {
+    top: -0.5rem;
+    left: 0;
+    font-size: 21px;
+    position: relative;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+  .post-question {
+    background-color: white;
+    height: 20vh;
+    padding: 20px;
+    width: 70%;
+    border: 1px solid rgb(214, 212, 212);
+    box-shadow: 1px 1px 2px rgb(225, 223, 223);
+  }
+}

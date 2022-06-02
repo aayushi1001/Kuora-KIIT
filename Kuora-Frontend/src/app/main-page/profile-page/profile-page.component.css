@@ -1,0 +1,35 @@
+.profile-picture {
+  height: 15em;
+  width: 15em;
+  border: 3px solid white;
+  border-radius: 8em;
+}
+
+.container-fluid {
+  height: 50vh;
+  width: 50vw;
+}
+
+#formFile{
+  position: absolute;
+  height: 15em;
+  width: 15em;
+  border-radius: 8em;
+  background:center center no-repeat transparent;
+  margin-left: -370px;
+  margin-top: -15px;
+  cursor: pointer;
+  color: transparent;
+}
+
+::file-selector-button {
+  display: none;
+}
+
+#formFile:hover{
+  /*background-size: 2px 2px;*/
+  /*background: 10px 10px no-repeat url("https://i.pinimg.com/originals/04/54/7c/04547c2b354abb70a85ed8a2d1b33e5f.png");*/
+  background:center center no-repeat black;
+  opacity: 0.5;
+}
+

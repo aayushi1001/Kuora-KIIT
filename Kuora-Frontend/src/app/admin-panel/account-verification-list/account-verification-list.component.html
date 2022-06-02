@@ -1,0 +1,136 @@
+<div class="container">
+<br>
+  <!-- <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" [routerLink]="['/admin-panel']">Verification Requests</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="['/users-list']">Users List</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+
+  </ul> -->
+
+<!--  <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--    <div class="container-fluid">-->
+
+<!--      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
+<!--      <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--        <ul class="navbar-nav">-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link  active" aria-current="page" [routerLink]="['/admin-panel/verify']">Verification Requests</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#" [routerLink]="['/admin-panel/users-list']">Users List</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#" [routerLink]="['/admin-panel/reported-posts']">Reported Posts</a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
+  <div width="200px">
+    <br><br><br>
+  </div>
+
+    <table class="table table-striped table-hover table-bordered border-primary text-center">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Reason</th>
+              <th scope="col">Document</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let request of Requests ; let i=index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{request.user_name}}</td>
+              <td>{{request.email}}</td>
+              <td>{{request.request}}</td>
+              <!-- <td><a target="_blank"  href={{http_link_prefix+request.documentPic}} class="link-primary">View Document</a></td> -->
+
+              <td><a (click)="createDocLink(request)" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="link-primary">View Document</a></td>
+              <td>
+                <button type="button" class="btn btn-success" (click)="ApproveRequest(request)">Approve</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" (click)="OpenDeclineRequestModal(request)"data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Decline</button>
+              </td>
+            </tr>
+
+
+
+          </tbody>
+      </table>
+  </div>
+
+  <!--  -->
+
+
+
+<div class="modal fade modal-xl" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Document for Verification</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{{http_link_prefix+current_user_docLink}}" class="img-fluid">
+
+
+
+      </div>
+      <div class="modal-footer">
+        <a target="_blank"  href="{{http_link_prefix+current_user_docLink}}" class="link-primary">View Document in full size</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--  -->
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Decline Request</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                <label for="recipient-email" class="col-form-label">User Name:</label>
+                <input [value]="current_user_name" type="text" class="form-control-plaintext" disabled readonly id="recipient-email">
+              </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">User Email:</label>
+            <input [value]="current_user_email" type="text" class="form-control-plaintext" disabled readonly id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea name="message" [(ngModel)]="current_user_message" class="form-control" id="message-text"></textarea>
+
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="DeclineRequest(current_user_email)" >Send message</button>
+
+      </div>
+    </div>
+  </div>
+</div>

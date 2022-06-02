@@ -1,0 +1,19 @@
+/**
+ * @Author: Ayush Ranjan
+ * @Date:   2022-04-18 16:10:08
+ * @Last Modified by:   Ayush Ranjan
+ * @Last Modified time: 2022-04-22 20:32:00
+ */
+.display-area {
+  margin-left: 270px;
+  padding-top: 100px;
+}
+.display-area.collapse1 {
+  margin-left: 80px;
+}
+
+@media only screen and (max-width: 1065px) {
+  .display-area.collapse1 {
+    margin-left: 0;
+  }
+}

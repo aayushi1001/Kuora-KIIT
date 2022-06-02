@@ -1,0 +1,64 @@
+<!--
+@Author: Ayush Ranjan
+@Date: 2022-04-18 16:10:08
+@Last Modified by: Ayush Ranjan
+@Last Modified time: 2022-04-18 23:02:19
+-->
+<nav class="navbar sticky-top navbar-light">
+  <div class="container-fluid">
+  <div class="d-flex">
+  <div class="menu-button" (click)="sidebar_toggle()">
+  <i class="bi bi-arrow-right"></i>
+  </div>
+  <div class="nav-heading">
+  <a><b>KUORA</b></a>
+  </div>
+  </div>
+
+  <form class="d-flex search">
+  <input
+  [(ngModel)]="value"
+  [ngModelOptions]="{ standalone: true }"
+  class="form-control me-2"
+  placeholder="Search"
+  aria-label="Search"
+  />
+  <div class="btn" (click)="search()">
+  <i class="bi bi-search"></i>
+  </div>
+  </form>
+  </div>
+  </nav>
+
+  <div class="dropdown setting float-end m-2">
+  <button
+  class="btn dropdown-toggle"
+  type="button"
+  id="dropdownMenuButton1"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+  >
+  <i class="bi bi-gear-fill"></i>
+  </button>
+  <ul class="dropdown-menu menu" aria-labelledby="dropdownMenuButton1">
+  <li>
+  <a
+  routerLink="/main-page/profile-page"
+  [queryParams]="{ email: activeUserEmail }"
+  class="dropdown-item"
+  >Profile</a
+  >
+  </li>
+  <li>
+  <a routerLink="/main-page/verification-portal" class="dropdown-item"
+  >Verification Portal</a
+  >
+  </li>
+    <li *ngIf="admin">
+      <a routerLink="/admin-panel/verify" class="dropdown-item"
+      >Admin Panel</a
+      >
+    </li>
+  <li (click)="logout()"><a class="dropdown-item">Logout</a></li>
+  </ul>
+  </div>

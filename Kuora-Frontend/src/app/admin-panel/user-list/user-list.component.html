@@ -1,0 +1,149 @@
+<div class="container">
+    <!-- <br>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" [routerLink]="['/admin-panel']">Verification Requests</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#" [routerLink]="['/users-list']">Users List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+
+      </ul> -->
+      <br>
+
+<!--      <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--        <div class="container-fluid">-->
+
+<!--          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--          </button>-->
+<!--          <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--            <ul class="navbar-nav">-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" aria-current="page" [routerLink]="['/admin-panel/verify']">Verification Requests</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link active" href="#" [routerLink]="['/admin-panel/users-list']">Users List</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link " href="#" [routerLink]="['/admin-panel/reported-posts']">Reported Posts</a>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </nav>-->
+      <div width="200px">
+        <br><br><br>
+      </div>
+
+        <table class="table table-striped table-hover table-bordered border-primary text-center">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of UsersList ; let i=index">
+                  <th scope="row">{{i+1}}</th>
+                  <!-- <td>{{user.name}}</td> -->
+                  <td><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="link-primary">{{user.name}}</a></td>
+                  <td>{{user.email}}</td>
+
+                  <td>
+                    <button *ngIf="user.blocked==true" type="button" class="btn btn-success" (click)="UnblockUser(user)">Unblock</button>&nbsp;&nbsp;
+                    <button *ngIf="user.blocked==false"type="button" class="btn btn-danger" (click)="BlockUser(user)">Block</button>
+                  </td>
+                </tr>
+
+
+
+              </tbody>
+          </table>
+      </div>
+
+      <!--  -->
+
+
+
+    <!-- <div class="modal fade modal-xl" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Document for Verification</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="{{http_link_prefix+current_user_docLink}}" class="img-fluid">
+
+
+
+          </div>
+          <div class="modal-footer">
+            <a target="_blank"  href="{{http_link_prefix+current_user_docLink}}" class="link-primary">View Document in full size</a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+      <!--  -->
+
+
+
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">User Info</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                    <label for="recipient-email" class="col-form-label">User Name:</label>
+                    <input [value]="current_user.name" type="text" class="form-control-plaintext" disabled readonly id="recipient-email">
+                  </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">User Email:</label>
+                <input [value]="current_user.email" type="text" class="form-control-plaintext" disabled readonly id="recipient-name">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Role:</label>
+                <textarea name="message" [value]="current_user.signupas" class="form-control" id="message-text"></textarea>
+
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Verified:</label>
+                <textarea name="message" [value]="current_user.verified" class="form-control" id="message-text"></textarea>
+
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Blocked:</label>
+                <textarea name="message" [value]="current_user.blocked" class="form-control" id="message-text"></textarea>
+
+              </div>
+              <div class="mb-3">
+                <label>Pic : </label>
+                <img src="{{http_link_prefix+current_user.pic}}" class="img-fluid">
+              </div>
+
+
+            </form>
+          </div>
+
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+
+          </div>
+        </div>
+      </div>
+    </div> -->

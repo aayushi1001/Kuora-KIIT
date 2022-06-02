@@ -1,0 +1,94 @@
+<!--
+  @Author: Ayush Ranjan
+  @Date:   2022-04-18 16:10:08
+  @Last Modified by:   Ayush Ranjan
+  @Last Modified time: 2022-04-23 12:47:49
+-->
+<div class="container-fluid overflow-hide m-4 p-4 mx-auto">
+  <!-- <div class="col-md-12">
+        <button class="btn btn-danger d-inline m-3" (click)="goToMainPage()">Back</button>
+        <button class="btn btn-primary d-inline m-3" *ngIf="canEdit" (click)="editableMode()">Edit Profile</button>
+    </div> -->
+
+  <div class="row border p-4 m-4">
+    <div class="col-md-6">
+      <img
+        src="http://localhost:3001/{{ userDetails.pic }}"
+        class="img-fluid profile-picture"
+        alt="Responsive image"
+      /><br />
+      <button
+        class="btn btn-primary d-inline m-3"
+        *ngIf="canEdit"
+        (click)="editableMode()"
+      >
+        Edit Profile
+      </button>
+    </div>
+
+    <div class="col-md-6 mt-3">
+      <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+        <input
+          type="file"
+          id="formFile"
+          formControlName="pic"
+          (change)="onFileChange($event)"
+          *ngIf="isEditableMode">
+
+        Name :
+        <input
+          type="text"
+          class="form-control my-2"
+          placeholder="Name"
+          [ngModel]="userDetails.name"
+          formControlName="name"
+        />
+
+        Email :
+        <input
+          type="email"
+          class="form-control my-2"
+          disabled
+          value="{{ userDetails.email }}"
+        />
+
+        Password :
+        <input
+          type="password"
+          class="form-control my-2"
+          value=" ********* "
+          formControlName="password"
+        />
+
+        Profile :
+        <input
+          type="text"
+          disabled
+          class="form-control my-2"
+          value="{{ userDetails.signupas }}"
+          placeholder="Profile"
+        />
+
+        Verification Status :
+        <input
+          type="text"
+          disabled
+          class="form-control my-2"
+          value="{{ userDetails.verified }}"
+        />
+
+        Description :
+        <textarea row="2" class="form-control my-2" formControlName="bio" [ngModel]="userDetails.bio">
+          {{ userDetails.bio }}
+        </textarea>
+        <button
+          class="btn btn-primary d-inline m-3"
+          (click)="onSubmit()"
+          *ngIf="isEditableMode"
+        >
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container border mt-5 p-5">
+    <form [formGroup]="verificationForm" (ngSubmit)="onSubmit()">
+        <label for="verificationReason" class="my-3">Why do yo want to get your account verified?</label>
+        <textarea
+            class="form-control"
+            name="verificationReason"
+            cols="30"
+            rows="2"
+            placeholder="Please specify your reason for verification"
+            [ngModel]="reason"
+            formControlName="reason"> {{reason}} </textarea>
+        <div class="my-3">
+            <label for="formFile" class="form-label">Upload Document to support your reason</label>
+            <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                formControlName="verificationDocument"
+                (change)="onFileChange($event)">
+        </div>
+        <button
+            type="submit"
+            class="btn btn-primary mt-3"
+            [disabled]="!this.verificationForm.valid">Save</button>
+    </form>
+</div>

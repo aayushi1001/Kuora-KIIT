@@ -1,0 +1,64 @@
+<!-- 
+  @Author: Ayush Ranjan
+  @Date:   2022-04-18 16:10:08
+  @Last Modified by:   Ayush Ranjan
+  @Last Modified time: 2022-04-24 20:53:22
+-->
+<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+  <!-- <div formGroupName="userData"> -->
+  <div class="form-group mt-3">
+    <label for="email" class="form-label" style="color: rgb(0, 11, 136)"
+      >Email</label
+    >
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="email"
+        id="email"
+        placeholder="Enter your official KIIT email Id"
+        aria-describedby="basic-addon2"
+        [ngClass]="{
+          'is-invalid':
+            signinForm.controls['email'].touched === true &&
+            signinForm.controls['email'].valid === false
+        }"
+      />
+      <span class="input-group-text" id="basic-addon2">@kiit.ac.in</span>
+      <div class="invalid-feedback">Enter a valid email id.</div>
+    </div>
+  </div>
+  <!-- </div> -->
+  <div class="form-group mt-3">
+    <label for="password" class="form-label" style="color: rgb(0, 11, 136)"
+      >Password</label
+    >
+    <input
+      type="password"
+      class="form-control"
+      formControlName="password"
+      id="password"
+      [ngClass]="{
+        'is-invalid':
+          signinForm.controls['password'].touched === true &&
+          signinForm.controls['password'].valid === false
+      }"
+    />
+    <div class="invalid-feedback">Please enter a valid password.</div>
+  </div>
+  <button
+    class="btn btn-primary my-3"
+    type="submit"
+    (click)="onSubmit()"
+    [disabled]="!this.signinForm.valid"
+  >
+    Login
+  </button>
+  <h6
+    (click)="GoToRegistration()"
+    style="color: rgb(0, 11, 136); cursor: pointer"
+  >
+    Not Registered Yet? Register now!
+  </h6>
+  <p *ngIf="errorResponse != ''">{{ errorResponse }}</p>
+</form>
